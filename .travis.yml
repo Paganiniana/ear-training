@@ -8,4 +8,4 @@ before_script:
   - npm install -g ionic
   - npm ci
 script:
-  - ionic build --prod -- --hase-href ./
+  - ionic build --prod -- --base-href ./
