@@ -1,11 +1,15 @@
 language: node_js
 node_js:
-  - "10.19.0"
+- 10.19.0
 branches:
   only:
   - master
 before_script:
-  - npm install -g ionic
-  - npm ci
+- npm install -g ionic
+- npm ci
 script:
-  - ionic build --prod -- --base-href ./
+- ionic build --prod -- --base-href ./
+deploy:
+  provider: firebase
+  token:
+    secure: mKYGyfxHwzT61hrWRAJ8f+AzWTNHKJG7rNO5TlxFFnPfrWSkQdKVVTtZ9dUWsO6Eh9duUFKRfW8/9yKtn6kvcPtwOphW2CyLzk3JPl7Zj6GnKj/Jd/4kNlWgkHS7y+zxvXZXMWAKmaXvW7WU7j9kfSL8B/AdwHxop7rOkTZb9EDuoKg5gr/wfBpWO/FO5X+ZWI6psnUuNtR+UDUsiCJTeeIWdYF9Dsf6SWTUxvRBsRBASBOlBZSbCDJb5VHlWjz9rC6jthWSQ+SuZESq2UC25EcYiP1/uCdU73PQXU8QC7ZTLLh8DZjZeYnVrBAsHcRyY40O/giRD4NGZhvWuA1NlKv++cvKJXy4TNMWbdf/b4sOpahh5uBsbiKj2JKlLB6lL+kmoZi3YSg1/yZwYeXRzbMmuaN5aPt6jF80Ji1B5bOi0+uv0Rdt7VgUk7qSsrIYLdZ7Rvt4XmQzE9QzDvgtucGj5f9rGWpu5YO+Y7AbNEdxPDAUDzI+WOzJ6NFR7npEdZrq+TA8/7hF72yVGirg/IhmebFMCAqxdFCPSlin8wzO7V9VEgk8tTYxcT/M7GH4QmUmyXf2zPZl4zla2OfQe5cQLI2wLqxYq45VvHuIw2EwLJrOtw0oCFRiJTfa53AeWiYiDutzTmJRhSvXJb/D1iB8pA2R01IPulBLkODlIE4=
