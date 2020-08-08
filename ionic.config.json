@@ -1,0 +1,7 @@
+{
+  "name": "ear-training",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
