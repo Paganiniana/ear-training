@@ -27,6 +27,7 @@
     "@types/jest": "^26.0.9",
     "jest": "^26.2.2",
     "jest-preset-angular": "^8.2.1",
+    "logrocket": "^1.0.10",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -41,7 +42,7 @@
     "@ionic/angular-toolkit": "^2.1.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.12.54",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -57,7 +58,9 @@
   },
   "description": "An Ionic project",
   "jest": {
-    "preset" : "jest-preset-angular",
-    "setupFilesAfterEnv": ["./src/setupJest.ts"]
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "./src/setupJest.ts"
+    ]
   }
 }
