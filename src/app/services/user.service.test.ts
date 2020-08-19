@@ -2,7 +2,6 @@ import { UserService } from './user.service';
 import { StorageService } from './storage.service';
 
 import { User } from './class_definitions';
-import { serialize } from 'v8';
 
 describe('User Service', () => {
 
@@ -13,8 +12,8 @@ describe('User Service', () => {
     beforeAll(async () => {
         service = new UserService(new StorageService());
         user = new User("abcdefg", "my_name", static_date, "easy");
-        await service.local_user_store.destroyAllValues();
-        await service.local_user_store.create({
+        await service.user_store.destroyAllValues();
+        await service.user_store.create({
             id: user.getId(),
             name: user.getName(),
             date_joined: user.getDateJoined(),

@@ -15,6 +15,9 @@ import { Track, Skill } from './class_definitions';
  * getNeedsPracticeArr // helper to loop over practice items and get practice need.
  * getMostNeedPractice(num, track [optional]) // returns an array of skills that need practice
  * 
+ * Mutators
+ *  - setGood(skill) // sets the  'practiced_sufficiently' property of said skill to true
+ *  - removeGood(skill) // sets the  'practiced_sufficiently' property of said skill to false
  */
 
 @Injectable({
@@ -29,6 +32,8 @@ export class TrackService {
     this.track_store = storageService.getStorage('track');
     this.skill_store = storageService.getStorage('skill');
   }
+
+  // Tracks
 
   async getAllTracks() {
     let res = await this.track_store.getAll();
@@ -48,6 +53,8 @@ export class TrackService {
     return (num_good / skills.length) * 100;
   }
 
+  // Skills
+
   async getAllSkills() {
     let res = await this.skill_store.getAll();
     return res.map((val) => {
@@ -60,6 +67,14 @@ export class TrackService {
     return res.map((val) => {
       return new Skill(val.id, val.track_id, val.title, val.image_arr, val.good);
     });
+  }
+
+  async setGood(skill) {
+    // TODO
+  }
+
+  async removeGood(skill) {
+    // TODO
   }
 
   async getNeedsPractice(skill) {

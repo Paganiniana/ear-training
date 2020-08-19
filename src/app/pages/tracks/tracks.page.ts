@@ -29,7 +29,7 @@ export class TracksPage implements OnInit {
 
   async logTestResults() {
     let user = await this.userService.getUserInfo();
-
+    console.log(user);
   }
 
 }

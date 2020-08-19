@@ -23,10 +23,10 @@ import { User } from './class_definitions';
 })
 export class UserService {
 
-  local_user_store;
+  user_store;
 
   constructor(private storageService: StorageService) { 
-    this.local_user_store = this.storageService.getStorage('user');
+    this.user_store = this.storageService.getStorage('user');
   }
 
   async getUserInfo() {
@@ -34,9 +34,22 @@ export class UserService {
   }
 
   async getLocalUser() {
-    // TODO cover case where no users are in storage
-    let user = await this.local_user_store.getAll();
-    return new User(user[0].id, user[0].name, user[0].date_joined, user[0].difficulty_level);
+    let user = await this.user_store.getAll();
+    if (!user.length) {
+      // this means there is no user object
+      await this.user_store.create({
+        name: "",
+        date_joined: new Date(),
+        difficulty_level: "easy",
+      });
+      // try again
+      return await this.getLocalUser();
+    }
+    // in case, for some reason, user_store.create gets called twice
+    if (user.length>1) {
+      throw new Error("Cannot have more than one user object in a system.")
+    }
+    return new User(user[0].id, user[0].name, new Date(user[0].date_joined), user[0].difficulty_level);
   }
 
   async updateUser(user) {
@@ -45,7 +58,7 @@ export class UserService {
 
   async updateLocalUser(user: User) {
     // leaves out the 'date joined' perameter, as it is assumed that this value won't change
-    return this.local_user_store.update(user.getId(), {
+    return this.user_store.update(user.getId(), {
       name: user.getName(),
       difficulty_level: user.getDifficulty(),
     });
