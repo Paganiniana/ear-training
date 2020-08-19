@@ -1,14 +1,77 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>tracks</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
-  <h1>Hello, world!</h1>
+  <div class="content">
+    <a routerLink="/skill-list">
+      <ion-card #ioncard>
+        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
+        <ion-card-header>
+          <ion-card-subtitle>
+            Notes/Intervals
+          </ion-card-subtitle>
+          <ion-card-title>
+            Track Name
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Description of the track.  There should be some details, here.
+        </ion-card-content>
+      </ion-card>
+    </a>  
+    <a routerLink="/skill-list">
+      <ion-card #ioncard>
+        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
+        <ion-card-header>
+          <ion-card-subtitle>
+            Notes/Intervals
+          </ion-card-subtitle>
+          <ion-card-title>
+            Track Name
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Description of the track.  There should be some details, here.
+        </ion-card-content>
+      </ion-card>
+    </a>  <a routerLink="/skill-list">
+      <ion-card>
+        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
+        <ion-card-header>
+          <ion-card-subtitle>
+            Notes/Intervals
+          </ion-card-subtitle>
+          <ion-card-title>
+            Track Name
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Description of the track.  There should be some details, here.
+        </ion-card-content>
+      </ion-card>
+    </a>  <a routerLink="/skill-list">
+      <ion-card>
+        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
+        <ion-card-header>
+          <ion-card-subtitle>
+            Notes/Intervals
+          </ion-card-subtitle>
+          <ion-card-title>
+            Track Name
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Description of the track.  There should be some details, here.
+        </ion-card-content>
+      </ion-card>
+    </a>    
+  </div>
 
-  <ion-button (click)="findItem()">Add</ion-button>
-  <ion-button (click)="updateItem()">update</ion-button>
+  <ion-button (click)="logTestResults()"></ion-button>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <a routerLink="/settings">
+      <ion-fab-button>
+        <ion-icon name="person-outline"></ion-icon>
+    </ion-fab-button>
+    </a>
+  </ion-fab>
 </ion-content>

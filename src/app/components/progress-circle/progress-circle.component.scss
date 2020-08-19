@@ -1,0 +1,25 @@
+.circle-container {
+    position:relative;
+    width: 100%;
+    height: 100%;
+  }
+  .circle {
+    position:relative;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    border-radius:100%;
+  }
+  
+  .circle-content {
+    text-align: center;
+    position:absolute;
+    top: 15%;
+    left: 15%;
+    width:70%;
+    height:70%;
+    background-color:white;
+    border-radius:100%;
+  }

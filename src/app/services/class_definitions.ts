@@ -16,7 +16,7 @@ const { Storage } = Plugins;
  *  -   all of the above
  * 
  * Mutators:
- *  -   setDifficulty() 
+ *  -   setDifficulty(string) // sets the difficulty on the local class, does NOT update storage
  * 
  * Note:
  *  -   this is the only class, at this point, to feature mutators.
@@ -30,14 +30,12 @@ export class User {
     name: String;
     date_joined: Date;
     difficulty_level: String;
-    storage: LocalStore | RemoteStore;
 
-    constructor(id: String, name: String, date_joined: Date, difficulty_level: string, storage: LocalStore | RemoteStore) {
+    constructor(id: String, name: String, date_joined: Date, difficulty_level: string) {
         this.id = id;
         this.name = name;
         this.date_joined = date_joined;
         this.difficulty_level = difficulty_level;
-        this.storage = storage;
     }
 
     getId() {
@@ -56,14 +54,10 @@ export class User {
         return this.difficulty_level;
     }
 
-    async setDifficulty(new_value) {
-        return this.storage.update(this.id, {difficulty_level: new_value}).then(() => {
-            this.difficulty_level = new_value; // set on local object, for imediate use
-        }).catch((e) => {
-            // presumably, only called if the user update fails
-            throw new Error(`Failed to update user of id ${this.getId()} difficulty with value: ${new_value}`);
-        });
+    setDifficulty(str) {
+        this.difficulty_level = str;
     }
+
 }
 
 /** INTERFACE
@@ -117,12 +111,14 @@ export class Track {
  *  -   track_id // used for reference / sorting
  *  -   title 
  *  -   image_arr
+ *  -   good 
  * 
  * Selectors:
  *  -   getId()
  *  -   getTrackId()
  *  -   getTitle()
  *  -   getImageArr()
+ *  -   isGood()
  *
  * Mutators?
  *  -   none
@@ -134,12 +130,14 @@ export class Skill {
     track_id: String;
     title: String;
     image_arr: Array<string>;
+    good: Boolean;
 
-    constructor(id: String, track_id: String, title: String, image_arr: Array<string>) {
+    constructor(id: String, track_id: String, title: String, image_arr: Array<string>, good: boolean) {
         this.id = id;
         this.track_id = track_id;
         this.title = title;
         this.image_arr = image_arr;
+        this.good = good;
     }
 
     getId() {
@@ -156,6 +154,10 @@ export class Skill {
 
     getImageArr() {
         return this.image_arr;
+    }
+
+    isGood() {
+        return this.good;
     }
 }
 
@@ -231,7 +233,7 @@ export class Assessment {
     id: String;
     skill_id: String;
     audio_arr: Array<string>;
-    tag: String;
+    tag: String; // one of 'name_the_sound', 'sound_the_name', 'image_the_sound', 'sound_the_image'
 
     constructor(id: String, skill_id: String, audio_arr: Array<string>, tag: String) {
         this.id = id;
@@ -392,7 +394,6 @@ export class LocalStore {
             val = val.filter((v) => {
                 let should_ret = false;
                 Object.keys(props).map((prop) => {
-                    console.log(`Comparing ${v[prop]} to ${props[prop]}`);
                     // first, check if the property even exists
                     if (v.hasOwnProperty(prop)) {
                         // now test if it matches
@@ -410,7 +411,6 @@ export class LocalStore {
         } catch (e) {
             throw new Error(`Could not filter the contents of ${val} with properties ${props}.`)
         }
-        console.log(`Filtered items to include ...`, val);
         return val;
     }
   
@@ -457,6 +457,15 @@ export class LocalStore {
 
     async create(props) {
         let val = await this.getAll();
+        // TESTING ONLY 
+        // if id is provided, us it
+        if (props.hasOwnProperty('id')) {
+            // do nothing
+        } else {
+            // add an id to the new object
+            props.id = this.createRandomId();
+        
+        }
         // Append props the given object to the array
         val.push(props);
         return Storage.set({ key: this.getBucketName(), value: JSON.stringify(val)})

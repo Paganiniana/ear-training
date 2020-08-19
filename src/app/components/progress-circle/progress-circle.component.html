@@ -1,3 +1,5 @@
-<p>
-  progress-circle works!
-</p>
+<div class = "circle-container">
+  <div class = "circle" [ngStyle] ="{'clip-path':getClip(deg)}">
+  </div>
+  <div role="button" class = "circle-content" (click)="callUp()" [innerHTML]="content"></div>
+</div>

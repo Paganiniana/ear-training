@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tracks"></ion-back-button>
+    </ion-buttons>
     <ion-title>skill-list</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="content">
+    <div class="circle-list">
+      <a routerLink="/test">
+        <app-progress-circle [deg]=50 [content]="skill_name"></app-progress-circle>
+      </a>
+    </div>
+  </div>
 
 </ion-content>

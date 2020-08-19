@@ -1,4 +1,5 @@
 import { User, Track, Skill, Explanation, Assessment, AssessmentResults, LocalStore, RemoteStore } from './class_definitions';
+import { isBoolean } from 'util';
 
 
 describe('User Class', () => {
@@ -8,9 +9,8 @@ describe('User Class', () => {
     let s;
 
     beforeEach(() => {
-        s = new LocalStore('test');
         d = new Date('2020-01-20');
-        user = new User('xxx', 'John Doe', d, 'easy', s);
+        user = new User('xxx', 'John Doe', d, 'easy');
     });
 
     beforeAll(() => {
@@ -22,12 +22,6 @@ describe('User Class', () => {
         expect(user.getName()).toEqual('John Doe');
         expect(user.getDateJoined()).toBe(d);
         expect(user.getDifficulty()).toEqual('easy');
-    });
-
-    test('Mutator, should be able to update user difficulty level', async () => {
-        expect(user.getDifficulty()).toEqual('easy');
-        await user.setDifficulty('hard');
-        expect(user.getDifficulty()).toEqual('hard');
     });
 
 });
@@ -50,7 +44,7 @@ describe('Track Class', () => {
 describe('Skill Class', () => {
     let skill;
     beforeEach(() => {
-        skill = new Skill('xxx', 'xxxd', 'Skill Title', ['image_url']);
+        skill = new Skill('xxx', 'xxxd', 'Skill Title', ['image_url'], false);
     });
 
     test('Skill selectors return expected values', () => {
@@ -58,6 +52,7 @@ describe('Skill Class', () => {
         expect(skill.getTrackId()).toEqual('xxxd');
         expect(skill.getTitle()).toEqual('Skill Title');
         expect(skill.getImageArr()).toBeInstanceOf(Array);
+        expect(skill.isGood()).toBe(false);
     });
 
 });

@@ -1,0 +1,30 @@
+.circle-list {
+
+    margin-left:10px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    app-progress-circle {
+        height: 40vw;
+        width: 40vw;
+        margin-top: 25px;
+        display: inherit;
+    }
+
+    @media screen and (min-width: 500px) {
+        app-progress-circle {
+            height: 30vw;
+            width: 30vw;
+        }    
+    }
+
+    @media screen and (min-width: 1000px) {
+        app-progress-circle {
+            height: 24vw;
+            width: 24vw;
+        }    
+    }
+
+}
