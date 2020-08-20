@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, ViewChildren, ElementRef } from '@angular
 
 
 import { UserService } from '../../services/user.service';
-import { Assessment, Skill } from '../../services/class_definitions';
+import { TrackService } from '../../services/track.service';
+import { Assessment, Skill, Track } from '../../services/class_definitions';
 
 
 @Component({
@@ -15,11 +16,21 @@ export class TracksPage implements OnInit {
   @ViewChildren('ioncard')
   cards;
 
-  constructor(private userService: UserService) { 
-    
+  tracks: Array<Track>;
+  // tracks: Array<Track> = [
+  //   new Track("1","Scale Degrees", ["/assets/images/scales_1.jpg"])
+  // ]
+
+  constructor(private userService: UserService, private trackService: TrackService) { 
+    this.populateTracks();
   }
 
   ngOnInit() {
+  }
+
+  async populateTracks() {
+    let tracks = await this.trackService.getAllTracks();
+    this.tracks = tracks;
   }
 
   childIsInView(res) {

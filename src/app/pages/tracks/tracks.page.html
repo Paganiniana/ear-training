@@ -1,15 +1,15 @@
 <ion-content>
 
   <div class="content">
-    <a routerLink="/skill-list">
+    <a *ngFor="let track of tracks" routerLink="/skill-list">
       <ion-card #ioncard>
-        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
+        <img src="{{track.getImageArr()[0]}}" alt="Title Image">
         <ion-card-header>
           <ion-card-subtitle>
-            Notes/Intervals
+            Subtitle
           </ion-card-subtitle>
           <ion-card-title>
-            Track Name
+            {{track.getName()}}
           </ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -17,55 +17,7 @@
         </ion-card-content>
       </ion-card>
     </a>  
-    <a routerLink="/skill-list">
-      <ion-card #ioncard>
-        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
-        <ion-card-header>
-          <ion-card-subtitle>
-            Notes/Intervals
-          </ion-card-subtitle>
-          <ion-card-title>
-            Track Name
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            Description of the track.  There should be some details, here.
-        </ion-card-content>
-      </ion-card>
-    </a>  <a routerLink="/skill-list">
-      <ion-card>
-        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
-        <ion-card-header>
-          <ion-card-subtitle>
-            Notes/Intervals
-          </ion-card-subtitle>
-          <ion-card-title>
-            Track Name
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            Description of the track.  There should be some details, here.
-        </ion-card-content>
-      </ion-card>
-    </a>  <a routerLink="/skill-list">
-      <ion-card>
-        <img src="https://via.placeholder.com/2000x1200" alt="Title Image">
-        <ion-card-header>
-          <ion-card-subtitle>
-            Notes/Intervals
-          </ion-card-subtitle>
-          <ion-card-title>
-            Track Name
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            Description of the track.  There should be some details, here.
-        </ion-card-content>
-      </ion-card>
-    </a>    
   </div>
-
-  <ion-button (click)="logTestResults()"></ion-button>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <a routerLink="/settings">

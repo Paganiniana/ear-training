@@ -10,9 +10,7 @@ import { TestService } from './test.service';
  *  - getSkillsByTrackId() // get all skills by track id
  *  - getSkillsByNeed(int) // gets the top n skills that need practicing
  * 
- * Mutators
- *  - setGood(skill) // sets the  'practiced_sufficiently' property of said skill to true
- *  - removeGood(skill) // sets the  'practiced_sufficiently' property of said skill to false
+
  */
 
 @Injectable({

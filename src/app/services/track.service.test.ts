@@ -18,7 +18,8 @@ describe('Track Service', () => {
     
     beforeAll(async () => {
         // complicated stubs
-        test_service = new TestService(new StorageService());
+        let storage = new StorageService();
+        test_service = new TestService(storage);
         service = new TrackService(new StorageService(), test_service);
         // add an assessment and assessment results,
         await test_service.createNewResults(test_user, test_assessment, false);

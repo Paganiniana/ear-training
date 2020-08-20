@@ -6,6 +6,8 @@ import { Track, Skill } from './class_definitions';
 
 /** INTERFACE
  * 
+ * ensurePopulation() // helper, just makes sure that the track and skill stores are populated
+ * 
  * getAllTracks() 
  * getTrackProgress(track) // returns value, out of [0-100]
  * 
@@ -33,10 +35,18 @@ export class TrackService {
     this.skill_store = storageService.getStorage('skill');
   }
 
+
   // Tracks
 
   async getAllTracks() {
+    // if no tracks are returned, then wait a bit and try again.
     let res = await this.track_store.getAll();
+    if (!res.length) {
+      setTimeout(async () => {
+        res = await this.track_store.getAll();
+      }, 1000);
+    }
+
     return res.map((val) => {
       return new Track(val.id, val.name, val.image_arr);
     });

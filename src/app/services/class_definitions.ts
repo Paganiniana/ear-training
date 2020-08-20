@@ -1,5 +1,6 @@
 import { StorageService } from './storage.service';
 import { Plugins } from '@capacitor/core';
+import { inherits } from 'util';
 const { Storage } = Plugins;
 
 
@@ -478,6 +479,27 @@ export class LocalStore {
         // Destroy all values in bucket,
         //  TESTING PURPOSES ONLY
         return Storage.remove({ key: this.getBucketName()});
+    }
+
+    async populateDefaults(url) {
+        // WARNING
+        // destroys everything in the store before populating
+        await this.destroyAllValues();
+        let values = await fetch(url).then((val) => {
+            return val.json();
+        }).catch((e) => {
+            // fail silently
+            console.error(`Could not fetch JSON data from ${url}`, e);
+            return [];
+        });
+
+        let prom_list= [];
+        // the contract is that 'values' contains an array of objects, like the LocalStore
+        values.map((val) => {
+            prom_list.push(this.create(val));
+        });
+
+        return Promise.all(prom_list);
     }
   }
 
