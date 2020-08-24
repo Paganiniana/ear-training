@@ -1,7 +1,7 @@
 <ion-content>
 
   <div class="content">
-    <a *ngFor="let track of tracks" routerLink="/skill-list">
+    <a *ngFor="let track of tracks" [routerLink]="['/skill-list']" [state]="{track_id: track.getId()}">
       <ion-card #ioncard>
         <img src="{{track.getImageArr()[0]}}" alt="Title Image">
         <ion-card-header>
@@ -17,6 +17,8 @@
         </ion-card-content>
       </ion-card>
     </a>  
+
+    <ion-button color="success" [routerLink]="['/test']">Practice</ion-button>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

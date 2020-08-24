@@ -11,7 +11,7 @@ const { Storage } = Plugins;
  *  -   id // !!! null, if user has not logged in, before
  *  -   name // !!! also null, if user has not logged before
  *  -   date_joined
- *  -   difficulty_level
+ *  -   difficulty_level // one of 'easy', 'moderate', 'hard'
  * 
  * Selectors:
  *  -   all of the above
@@ -475,6 +475,25 @@ export class LocalStore {
             })
     }
 
+    async bulkCreate(props_arr: Array<any>) {
+        // same as 'create'
+        //  but it synchronously iterates over an array of things to add.
+        let val = await this.getAll();
+        props_arr.forEach((prop) => {
+            if (prop.hasOwnProperty('id')) {
+                // do nothing
+            } else {
+                // add an id to the new object
+                prop.id = this.createRandomId();
+            }
+            val.push(prop);
+        });
+        return Storage.set({ key: this.getBucketName(), value: JSON.stringify(val)})
+            .catch((e) => {
+                throw new Error(`Could not add array of objects ${props_arr} to bucket ${this.getBucketName()}`)
+            })
+    }
+
     async destroyAllValues() {
         // Destroy all values in bucket,
         //  TESTING PURPOSES ONLY
@@ -493,13 +512,7 @@ export class LocalStore {
             return [];
         });
 
-        let prom_list= [];
-        // the contract is that 'values' contains an array of objects, like the LocalStore
-        values.map((val) => {
-            prom_list.push(this.create(val));
-        });
-
-        return Promise.all(prom_list);
+        return this.bulkCreate(values);
     }
   }
 

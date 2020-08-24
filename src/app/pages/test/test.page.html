@@ -8,25 +8,33 @@
 </ion-header>
 
 <ion-content>
-
   <div class="content">
-    <div class="focus-stub">
-      <p>There are four potential test types to be concerned with.</p>
-      <ul>
-        <li>Name the sound</li>
-        <li>Sound the name</li>
-        <li>Picture the sound</li>
-        <li>Sound the Picture</li>
-      </ul>
+    <!-- Account for possible question types-->
+    <div *ngIf="assessment_skill && (assessment | async)?.getTag() == 'sound_the_name'" class="question">
+      <h1>Match the Image:</h1>
+      <app-image-byte [selectable]="false" [image_url]="(assessment_skill | async)?.getImageArr()[0]"></app-image-byte>
     </div>
-    <div class="options-stub">
-      <div class="option"></div>
-      <div class="option"></div>
-      <div class="option"></div>
-      <div class="option"></div>
+    <div *ngIf="assessment_skill && (assessment | async)?.getTag() == 'name_the_sound'" class="question">
+      <h1>Match the Sound:</h1>
+      <app-sound-byte [selectable]="false" [autoplay]="true" [sound_url]="(assessment |async)?.getAudioArr()[0]" ></app-sound-byte>
     </div>
-    <div class="progress-stub">
 
+    <div *ngIf="options_arr && (assessment | async)?.getTag() == 'sound_the_name'" class="options">
+      <div *ngFor="let option of options_arr | async" class="option">
+        <app-sound-byte (click)="select(option)" [selected]="option == selected" [selectable]="true" [autoplay]="false" [sound_url]="option.getAudioArr()[0]"></app-sound-byte>
+      </div>
     </div>
+
+    <div *ngIf="options_arr && (assessment | async)?.getTag() == 'name_the_sound'" class="options">
+      <div *ngFor="let option of options_arr | async" class="option">
+        <p>{{option.getTitle()}}</p>
+        <app-image-byte (click)="select(option)" [selected]="option == selected" [selectable]="true" [image_url]="option.getImageArr()[0]"></app-image-byte>
+      </div>
+    </div>
+
+    <div class="submit">
+      <ion-button (click)="submit()" color="success">Submit</ion-button>
+    </div>
+
   </div>
 </ion-content>

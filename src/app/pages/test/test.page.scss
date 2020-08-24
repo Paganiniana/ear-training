@@ -1,34 +1,13 @@
-/* Stubs */
-
-.stub {
-    border-width: 3px;
-    border-style: solid;
+.options, .question, .submit {
+    width: 100%;
 }
 
-.focus-stub {
-    @extend .stub;
-    border-color: red;
-    width: 100vw;
-    height: 50vh;
-    position: absolute;
-    top: 0;
-}
-
-.options-stub {
-    @extend .stub;
-    border-color: blue;
-    width: 100vw;
-    height: 40vh;
-    position: absolute;
-    bottom: 10vh;
-}
-
-.progress-stub {
-    @extend .stub;
-    border-color: green;
-    width: 100vw;
-    height: 10vh;
-    position: absolute;
-    bottom: 0;
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    .option {
+        max-width: 40%;
+        margin: 10px;
+    }
 }
 

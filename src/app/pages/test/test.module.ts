@@ -8,12 +8,15 @@ import { TestPageRoutingModule } from './test-routing.module';
 
 import { TestPage } from './test.page';
 
+import { ComponentsModule } from '../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TestPageRoutingModule
+    TestPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [TestPage]
 })

@@ -52,6 +52,16 @@ export class TrackService {
     });
   }
 
+  async getTrackById(id) {
+    // simple filter
+    let tracks = await this.getAllTracks();
+    return tracks.filter((track) => {
+      if (track.getId() == id) {
+        return track;
+      }
+    })[0]; //retun the only item that matches
+  }
+
   async getTrackProgress(track) {
     let skills = await this.getSkillsByTrack(track);
     let num_good = 0;
@@ -77,6 +87,16 @@ export class TrackService {
     return res.map((val) => {
       return new Skill(val.id, val.track_id, val.title, val.image_arr, val.good);
     });
+  }
+
+  async getSkillById(id) {
+    // simple filter
+    let skills = await this.getAllSkills();
+    return skills.filter((skill) => {
+      if (skill.getId() == id) {
+        return skill;
+      }
+    })[0]; // only return the one that matches
   }
 
   async setGood(skill) {
@@ -130,9 +150,14 @@ export class TrackService {
       return need2.need - need1.need;
     });
 
+    // if num is 1, return jus the skill
+    if (num == 1) {
+      return needs[0].skill;
+    }
+    debugger;
     // returns just the skill object
     return needs[num].map((val) => {
-      return val.skil;
+      return val.skill;
     });
   }
 }

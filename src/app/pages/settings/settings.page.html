@@ -10,12 +10,23 @@
 <ion-content>
 
   <div class="content">
-    <p>There are only three parts to this page.</p>
-    <ul>
-      <li>Progress history graph (https://swimlane.github.io/ngx-charts/#/ngx-charts/line-chart)</li>
-      <li>"Easy", "Medium", and "Hard" Buttons</li>
-      <li>Log in to save/sync Progress</li>
-    </ul>
+    <div class="progress">
+      <h1>Progress</h1>
+      <p>Sessions per day</p>
+      <app-progress-graph></app-progress-graph>
+    </div>
+    <div class="difficulty">
+      <h1>Difficulty</h1>
+      <p>Select a different difficulty to adjust your goal.</p>
+      <div class="difficulty-options">
+        <app-selectable-text-byte *ngFor="let d of difficulties" (click)="select(d)" [text] = "d" [selected]="(current_user)?.getDifficulty() == d"></app-selectable-text-byte>
+      </div>
+    </div>
+    <div class="account">
+      <h1>Account</h1>
+      <p>Login to synchronize your data.</p>
+      <i><b>Coming Soon!</b></i>
+    </div>
   </div>
 
 </ion-content>

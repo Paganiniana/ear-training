@@ -45,6 +45,7 @@ export class TestService {
     });
   }
 
+
   async getAllAssessments() {
     let assessments = await this.assessment_store.getAll();
     return assessments.map((val) => {
@@ -57,7 +58,7 @@ export class TestService {
   async getAllResults() {
     let results = await this.results_store.getAll();
     return results.map((val) => {
-      return new AssessmentResults(val.id, val.user_id, val.assessment_id, val.date_attempted, val.results);
+      return new AssessmentResults(val.id, val.user_id, val.assessment_id, new Date(val.date_attempted), val.results);
     });
   }
 
@@ -66,7 +67,7 @@ export class TestService {
     let results = await this.results_store.getAllByProperty({assessment_id: assessment.getId()});
     console.log(results);
     return results.map((val) => {
-      return new AssessmentResults(val.id, val.user_id, val.assessment_id, val.date_attempted, val.results);
+      return new AssessmentResults(val.id, val.user_id, val.assessment_id, new Date(val.date_attempted), val.results);
     });
   }
 

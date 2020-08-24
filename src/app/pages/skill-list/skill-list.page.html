@@ -10,8 +10,8 @@
 <ion-content>
   <div class="content">
     <div class="circle-list">
-      <a routerLink="/test">
-        <app-progress-circle [deg]=50 [content]="skill_name"></app-progress-circle>
+      <a *ngFor="let skill of skills | async" [routerLink]="['/test']" [state]="{skill_id: skill.getId()}">
+        <app-progress-circle [deg]=50 [content]="skill.getTitle()"></app-progress-circle>
       </a>
     </div>
   </div>

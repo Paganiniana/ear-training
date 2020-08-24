@@ -32,6 +32,8 @@ export class ImageByteComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
 }

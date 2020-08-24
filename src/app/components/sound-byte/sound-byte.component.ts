@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output } from '@angular/core';
+
+import { AudioService } from '../../services/audio.service';
 
 
 /** INTERFACE:
@@ -23,10 +25,41 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sound-byte.component.html',
   styleUrls: ['./sound-byte.component.scss'],
 })
-export class SoundByteComponent implements OnInit {
+export class SoundByteComponent implements OnChanges, OnInit {
 
-  constructor() { }
+  @Input()
+  sound_url: string;
 
-  ngOnInit() {}
+  @Input()
+  autoplay: boolean;
+
+  @Input()
+  selectable: boolean;
+
+  @Input()
+  selected: boolean;
+
+  // default audio player, see audio service, updated on ngOnChanges
+  player;
+
+  constructor(private audioService: AudioService) { }
+
+  ngOnInit() {
+    this.player = this.audioService.getPlayer(this.sound_url);
+  }
+
+  ngOnChanges() {
+    this.player = this.audioService.getPlayer(this.sound_url);
+    // we put this check in the 'onChanges' portion, so as to avoid any issues when
+    //  angular reuses an existing component, or we navigate into a page that has already been rendered.
+    if (this.autoplay) {
+      this.player.play();
+    };
+  }
+
+  clickHandler() {
+    console.log("Audio clicked");
+    this.player.play();
+  }
 
 }
