@@ -1,4 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+/** INTERFACE  
+ * 
+ * DISPLAYS
+ *  - Title
+ *  - An image
+ *  - Description
+ *  - progress bar
+ *  
+ * 
+ * EXPECTS
+ *  - title (string)
+ *  - image_url (string)
+ *  - description (string)
+ *  - progress (percentage, integer)
+ * 
+ * 
+ */
 
 @Component({
   selector: 'app-card',
@@ -7,7 +25,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input()
+  title: string;
+
+  @Input()
+  description: string;
+
+  @Input()
+  image_url: string;
+
+  @Input()
+  percentage: number;
+
+
   constructor() { }
+
 
   ngOnInit() {}
 

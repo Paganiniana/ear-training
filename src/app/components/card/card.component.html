@@ -1,3 +1,14 @@
-<p>
-  card works!
-</p>
+<div class="paper">
+  <div class="title">
+    {{title}}
+  </div>
+  <div class="image">
+    <ion-img [src]="image_url"></ion-img>
+  </div>
+  <div *ngIf="description" class="description">
+    {{description}}
+  </div>
+  <div *ngIf="percentage" class="progress-container">
+    
+  </div>
+</div>

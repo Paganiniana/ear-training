@@ -10,6 +10,9 @@ import { SoundByteComponent } from './sound-byte/sound-byte.component';
 import { ImageByteComponent } from './image-byte/image-byte.component';
 import { SelectableTextByteComponent } from './selectable-text-byte/selectable-text-byte.component';
 import { ProgressGraphComponent } from './progress-graph/progress-graph.component';
+import { BackButtonComponent } from './back-button/back-button.component';
+import { ForwardButtonComponent } from './forward-button/forward-button.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
     imports: [
@@ -23,6 +26,9 @@ import { ProgressGraphComponent } from './progress-graph/progress-graph.componen
       ImageByteComponent,
       SelectableTextByteComponent,
       ProgressGraphComponent,
+      BackButtonComponent,
+      ForwardButtonComponent,
+      CardComponent,
     ],
     exports: [
         ProgressCircleComponent,
@@ -31,6 +37,9 @@ import { ProgressGraphComponent } from './progress-graph/progress-graph.componen
         ImageByteComponent,
         SelectableTextByteComponent,
         ProgressGraphComponent,
+        BackButtonComponent,
+        ForwardButtonComponent,
+        CardComponent,
     ]
 })
 export class ComponentsModule {}
