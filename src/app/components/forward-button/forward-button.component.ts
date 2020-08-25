@@ -1,4 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+/** INTERFACE 
+ * 
+ * DISPLAYS:
+ * 
+ * - A button that points forward.
+ * 
+ * 
+ * EXPECTS
+ * 
+ * - (optionally) a url to navigate to.
+ * 
+ * 
+ */
 
 @Component({
   selector: 'app-forward-button',
@@ -7,6 +21,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForwardButtonComponent implements OnInit {
 
+  @Input()
+  navigate_to: string;
+  
   constructor() { }
 
   ngOnInit() {}
