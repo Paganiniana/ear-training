@@ -1,0 +1,22 @@
+.container {
+    display: block;
+    position: relative;
+    z-index: 0;
+
+    .title-text {
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        h1, h2, h3, h4 {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 3em;
+            color: white;
+        }
+    }
+}
