@@ -3,49 +3,49 @@
         "id": "1",
         "track_id": "1",
         "title": "Tonic",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "2",
         "track_id": "1",
         "title": "Super-Tonic",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "3",
         "track_id": "1",
         "title": "Mediant",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "4",
         "track_id": "1",
         "title": "Sub-Dominant",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "5",
         "track_id": "1",
         "title": "Dominant",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "6",
         "track_id": "1",
         "title": "Sub-Mediant",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     },
     {
         "id": "7",
         "track_id": "1",
         "title": "Leading Tone",
-        "image_arr":["https://via.placeholder.com/300x150"],
+        "image_arr":["/assets/svg/placeholder.svg"],
         "good": false
     }
 
