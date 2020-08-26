@@ -19,6 +19,7 @@ import { TitleComponent } from './title/title.component';
     imports: [
         CommonModule,
         NgxChartsModule,
+        IonicModule
     ],
   declarations: [
       ProgressBarComponent,
