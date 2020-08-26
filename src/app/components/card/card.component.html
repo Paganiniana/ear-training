@@ -1,4 +1,14 @@
-<div class="paper">
+<div id="my-div"></div>
+
+<script>
+  new Vivus('my-div', { duration: 200, file: '/assets/svg/drawing_filled_in_square.svg' }, myCallback);
+</script>
+
+
+
+<!-- <object id="test" data="/assets/svg/drawing_filled_in_square.svg" type="image/svg+xml"></object> -->
+
+<!--<div class="paper">
   <div class="image">
     <ion-img [src]="image_url"></ion-img>
   </div>
@@ -9,6 +19,7 @@
     {{description}}
   </div>
   <div *ngIf="percentage" class="progress-container">
-
+    <app-progress-bar [percentage]="percentage"></app-progress-bar>
+    <app-forward-button></app-forward-button>
   </div>
-</div>
+</div>-->

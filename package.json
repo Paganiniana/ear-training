@@ -31,6 +31,7 @@
     "logrocket": "^1.0.10",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
+    "vivus": "^0.4.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

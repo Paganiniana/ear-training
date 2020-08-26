@@ -1,3 +1,5 @@
-<p>
-  progress-bar works!
-</p>
+<div class="container">
+  <div #progressBorderTarget class="border"></div>
+  <div #progressFillerTarget class="filler"></div>
+  <div class="filler-mask" [ngStyle]="{ 'width': mask_width}"></div>
+</div>
