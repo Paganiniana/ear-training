@@ -1,4 +1,5 @@
 .paper {
+    display: grid;
     width: 100%;
     position: relative;
     color: white;
@@ -11,27 +12,31 @@
 
     // Title 
 
-    .title {
-        position: absolute;
-        left: 10%;
-        top: 10%;
-        padding: 10px;
-        width: auto;
-        height: auto;
-        background-size: contain;
-        background-image: url('/assets/svg/drawing_filled_in_square.svg');
-        color: white;
+    .title-container {
+        width: 50%;
+        margin-bottom: -30px; //arbitrary value
+        z-index: 10;
     }
 
     // Image
 
-    .image {
+    .image-container {
         position: relative;
         width: 100%;
         height: auto;
     }
+    .progress-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
 
-    // Description
+        .bar-container {
+            flex-grow: 1;
+        }
 
-    // Percentage
+        .button-container {
+            width: 10vw;
+            height: auto;
+        }
+    }
 }
