@@ -2,23 +2,13 @@
 
   <div class="content">
     <a *ngFor="let track of tracks" [routerLink]="['/skill-list']" [state]="{track_id: track.getId()}">
-      <ion-card #ioncard>
-        <img src="{{track.getImageArr()[0]}}" alt="Title Image">
-        <ion-card-header>
-          <ion-card-subtitle>
-            Subtitle
-          </ion-card-subtitle>
-          <ion-card-title>
-            {{track.getName()}}
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            Description of the track.  There should be some details, here.
-        </ion-card-content>
-      </ion-card>
+      <app-card
+        [title]="track.getName()"
+        [description]=""
+        [percentage]=50
+        [image_url]="track.getImageArr()[0]"
+      ></app-card>
     </a>  
-
-    <ion-button color="success" [routerLink]="['/test']">Practice</ion-button>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

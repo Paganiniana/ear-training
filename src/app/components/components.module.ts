@@ -13,6 +13,7 @@ import { ProgressGraphComponent } from './progress-graph/progress-graph.componen
 import { BackButtonComponent } from './back-button/back-button.component';
 import { ForwardButtonComponent } from './forward-button/forward-button.component';
 import { CardComponent } from './card/card.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { CardComponent } from './card/card.component';
       BackButtonComponent,
       ForwardButtonComponent,
       CardComponent,
+      TitleComponent,
     ],
     exports: [
         ProgressCircleComponent,
@@ -40,6 +42,7 @@ import { CardComponent } from './card/card.component';
         BackButtonComponent,
         ForwardButtonComponent,
         CardComponent,
+        TitleComponent,
     ]
 })
 export class ComponentsModule {}

@@ -8,12 +8,15 @@ import { TracksPageRoutingModule } from './tracks-routing.module';
 
 import { TracksPage } from './tracks.page';
 
+import { ComponentsModule } from '../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TracksPageRoutingModule
+    TracksPageRoutingModule,
+    ComponentsModule,
   ],
   declarations: [TracksPage]
 })
