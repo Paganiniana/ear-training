@@ -39,6 +39,10 @@ export class TestPage implements OnInit {
   options_arr: Promise<Array<any>>; // can be anything, depending on the type of the test
   selected;
 
+  // used to message the options so that they can display success or failure
+  submitted: boolean;
+  success: boolean;
+
   constructor(private trackService: TrackService,
     private testService: TestService, 
     private location: Location, 
@@ -162,7 +166,9 @@ export class TestPage implements OnInit {
     // do the check 
     let message;
     if (right_option == this.selected) {
-      message = "You chose wisely!"; 
+      message = "You chose wisely!";
+      this.submitted = true; 
+      this.success = true;
       console.log(message);
       // TODO: record the attempt
       this.testService.createNewResults(user, assessment, true);
@@ -176,6 +182,8 @@ export class TestPage implements OnInit {
       // TODO: record the attempt
       this.testService.createNewResults(user, assessment, false);
       message = "You chose poorly!";
+      this.submitted = true;
+      this.success = false;
       console.log(message);
     }
     // modal popover

@@ -28,7 +28,7 @@
     <div *ngIf="options_arr && (assessment | async)?.getTag() == 'name_the_sound'" class="options">
       <div *ngFor="let option of options_arr | async" class="option">
         <p>{{option.getTitle()}}</p>
-        <app-image-byte (click)="select(option)" [selected]="option == selected" [selectable]="true" [image_url]="option.getImageArr()[0]"></app-image-byte>
+        <app-image-byte (click)="select(option)" [checkMark]="option == selected && submitted && success" [redX]="option == selected && submitted && !success" [selected]="option == selected" [selectable]="true" [image_url]="option.getImageArr()[0]"></app-image-byte>
       </div>
     </div>
 

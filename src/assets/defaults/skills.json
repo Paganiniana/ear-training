@@ -2,50 +2,50 @@
     {
         "id": "1",
         "track_id": "1",
-        "title": "Tonic",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Do",
+        "image_arr":["/assets/svg/do_dear.svg"],
         "good": false
     },
     {
         "id": "2",
         "track_id": "1",
-        "title": "Super-Tonic",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Re",
+        "image_arr":["/assets/svg/re_sun.svg"],
         "good": false
     },
     {
         "id": "3",
         "track_id": "1",
-        "title": "Mediant",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Mi",
+        "image_arr":["/assets/svg/me_name.svg"],
         "good": false
     },
     {
         "id": "4",
         "track_id": "1",
-        "title": "Sub-Dominant",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Fa",
+        "image_arr":["/assets/svg/fa_run.svg"],
         "good": false
     },
     {
         "id": "5",
         "track_id": "1",
-        "title": "Dominant",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Sol",
+        "image_arr":["/assets/svg/sol_needle.svg"],
         "good": false
     },
     {
         "id": "6",
         "track_id": "1",
-        "title": "Sub-Mediant",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "La",
+        "image_arr":["/assets/svg/la_note.svg"],
         "good": false
     },
     {
         "id": "7",
         "track_id": "1",
-        "title": "Leading Tone",
-        "image_arr":["/assets/svg/placeholder.svg"],
+        "title": "Ti",
+        "image_arr":["/assets/svg/ti_drink.svg"],
         "good": false
     }
 

@@ -11,7 +11,7 @@
   <div class="content">
     <div class="circle-list">
       <a *ngFor="let skill of skills | async" [routerLink]="['/test']" [state]="{skill_id: skill.getId()}">
-        <app-progress-circle [deg]=50 [content]="skill.getTitle()"></app-progress-circle>
+        <app-card [title]="skill.getTitle()" [image_url]="skill.getImageArr()[0]"></app-card>
       </a>
     </div>
   </div>
